@@ -1,8 +1,8 @@
-# Minoca OS
+# OS
 
-Minoca OS is a general purpose operating system written from scratch. It aims to be lean, maintainable, modular, and compatible with existing software. It features a POSIX-like interface towards application software, and a growing suite of popular packages already built and ready to go. On the backend, it contains a powerful driver model between device drivers and the kernel. The driver model enables drivers to be written in a forward compatible manner, so that kernel level components can be upgraded without necessarily requiring a recompilation of all device drivers.
+OS is a general purpose operating system written from scratch. It aims to be lean, maintainable, modular, and compatible with existing software. It features a POSIX-like interface towards application software, and a growing suite of popular packages already built and ready to go. On the backend, it contains a powerful driver model between device drivers and the kernel. The driver model enables drivers to be written in a forward compatible manner, so that kernel level components can be upgraded without necessarily requiring a recompilation of all device drivers.
 
-Minoca OS is event driven, preemptible, SMP ready, and network capable. It currently runs on x86 PCs and a range of ARM boards.
+OS is event driven, preemptible, SMP ready, and network capable. It currently runs on x86 PCs and a range of ARM boards.
 
 ### Screenshots
 ![Installing Git on Minoca OS](docs/screenshots/Installing-Git.png)
@@ -10,9 +10,9 @@ Minoca OS is event driven, preemptible, SMP ready, and network capable. It curre
 ![Stack Profiler](docs/screenshots/Stack-Profiler.png)
 
 ### Getting Started
-If you're just looking to try out Minoca OS, head over to our [download](https://www.minocacorp.com/download/) page to grab the latest stable images. The rest of this page describes how to use this repository to build your own custom image of Minoca OS.
+If you're just looking to try out OS, head over to our [download](https://www.minocacorp.com/download/) page to grab the latest stable images. The rest of this page describes how to use this repository to build your own custom image of Minoca OS.
 
-## Building Minoca OS
+## Building OS
 The paragraphs below will get you from a fresh clone to a built image.
 
 ### Environment
@@ -24,7 +24,7 @@ The Minoca OS build environment is keyed off of a few environment variables you'
  - `PATH` - You'll need to have `$SRCROOT/$ARCH$VARIANT$DEBUG/tools/bin` in your path to build successfully.
 
 ### Prerequisites
-To build Minoca OS you'll need a Minoca-specific toolchain for the particular architecture you're building. Prebuilt toolchains can be found [here](https://www.minocacorp.com/download/#toolchain). If you want to build the toolchain from sources, you'll need to check out the [third-party](https://gitlab.com/minoca/third-party) repository and run "make tools" in there.
+To build OS you'll need a Minoca-specific toolchain for the particular architecture you're building. Prebuilt toolchains can be found [here](https://www.minocacorp.com/download/#toolchain). If you want to build the toolchain from sources, you'll need to check out the [third-party](https://gitlab.com/minoca/third-party) repository and run "make tools" in there.
 > Note: If you want to build your own toolchain on Windows, you may find the [tools](https://gitlab.com/minoca/tools) repository helpful, as it contains a native MinGW compiler, make, and other tools needed to bootstrap a toolchain on Windows.
 
 ### Build
@@ -37,7 +37,7 @@ A note for macOS users: We've managed to build successfully using both GCC from 
 ### Running
 To boot your built images, you can write the appropriate image for the platform you're trying to boot to a USB flash drive or hard disk. On Windows, you can use the Win32DiskImager tool (included in the [tools](https://gitlab.com/minoca/tools) repository under win32/Win32DiskImager). You can also use the msetup tool to build custom images. If you use the msetup tool to install Minoca OS onto a partition of a disk containing other partitions that you care about (such as on the same machine you're building from), we highly recommend making a complete backup of your disk. Minoca OS is still new, and we wouldn't want a bad bug to wipe out all your data.
 
-If you're building Minoca OS on Windows and have downloaded the [tools](https://gitlab.com/minoca/tools) repository, several shortcuts have been set up to allow you to quickly run a Qemu instance with the images you've just built. Make sure you fired up the development environment with the setenv.cmd script. Type `run`, then `dx` to fire up an x86 Qemu instance of pc.img with a kernel debugger attached. We use this internally for faster development. If building for ARM, it's `runarm` and `da`.
+If you're building OS on Windows and have downloaded the [tools](https://gitlab.com/minoca/tools) repository, several shortcuts have been set up to allow you to quickly run a Qemu instance with the images you've just built. Make sure you fired up the development environment with the setenv.cmd script. Type `run`, then `dx` to fire up an x86 Qemu instance of pc.img with a kernel debugger attached. We use this internally for faster development. If building for ARM, it's `runarm` and `da`.
 
 ### Nickel Tour
 Below is a brief orientation of a few of the directories in the repository. Check the Makefile in each directory for a more detailed description of what that directory contains.
